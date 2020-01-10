@@ -79,7 +79,8 @@ public:
       d_neg_prior[k] = 2.0 * beta[k] / (S2 + pow(beta[k], 2.0));
     }
 
-    // this is the negative log posterior, scaled
+    // this is the negative log posterior, scaled,
+    // plus a constant to keep the values somewhat small (and not too close to zero)
     double cn = cnst[i];
     const double f = (neg_obs + neg_prior)/cn - 10.0;
 

@@ -689,7 +689,7 @@ betabinCppRoutine <- function(Y, x, weights, offset, param,
   weightsNZ <- t(weights[nonzero, , drop = FALSE])
   theta <- param[, 1]
   size <- param[, -1]
-  if (is.vector(size)) size = t(as.matrix(size))
+  if (is.vector(size)) size = t(as.matrix(size)) #preventing a bug that occurs when size has one column
   sizeNZ <- t(size[nonzero, , drop = FALSE])
   sigma <- prior.control$prior.no.shrink.scale
   S <- prior.control$prior.scale
